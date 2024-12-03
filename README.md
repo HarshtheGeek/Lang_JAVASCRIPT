@@ -239,5 +239,175 @@ value = true;         // Now a Boolean
 
 ---
 
+```markdown
+# JavaScript Conditional Statements
+
+Conditional statements in JavaScript allow you to execute different blocks of code based on specific conditions.
+
+---
+
+## **Types of Conditional Statements**
+
+### 1. **if Statement**
+The `if` statement executes a block of code if a specified condition is `true`.
+
+**Syntax:**
+```javascript
+if (condition) {
+  // code to execute if condition is true
+}
+```
+
+**Example:**
+```javascript
+let age = 18;
+
+if (age >= 18) {
+  console.log("You are eligible to vote.");
+}
+```
+
+---
+
+### 2. **if...else Statement**
+The `if...else` statement provides an alternative block of code to execute if the condition is `false`.
+
+**Syntax:**
+```javascript
+if (condition) {
+  // code to execute if condition is true
+} else {
+  // code to execute if condition is false
+}
+```
+
+**Example:**
+```javascript
+let age = 16;
+
+if (age >= 18) {
+  console.log("You are eligible to vote.");
+} else {
+  console.log("You are not eligible to vote.");
+}
+```
+
+---
+
+### 3. **if...else if...else Statement**
+The `if...else if...else` statement tests multiple conditions sequentially.
+
+**Syntax:**
+```javascript
+if (condition1) {
+  // code to execute if condition1 is true
+} else if (condition2) {
+  // code to execute if condition2 is true
+} else {
+  // code to execute if none of the conditions are true
+}
+```
+
+**Example:**
+```javascript
+let marks = 85;
+
+if (marks >= 90) {
+  console.log("Grade: A");
+} else if (marks >= 75) {
+  console.log("Grade: B");
+} else {
+  console.log("Grade: C");
+}
+```
+
+---
+
+### 4. **switch Statement**
+The `switch` statement evaluates an expression against multiple cases and executes the matching block.
+
+**Syntax:**
+```javascript
+switch (expression) {
+  case value1:
+    // code to execute if expression === value1
+    break;
+  case value2:
+    // code to execute if expression === value2
+    break;
+  default:
+    // code to execute if no cases match
+}
+```
+
+**Example:**
+```javascript
+let day = 3;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+```
+
+---
+
+### 5. **Ternary Operator**
+The ternary operator (`? :`) is a shorthand for `if...else` and is used for simple conditional expressions.
+
+**Syntax:**
+```javascript
+condition ? expressionIfTrue : expressionIfFalse;
+```
+
+**Example:**
+```javascript
+let age = 18;
+let message = age >= 18 ? "You are eligible to vote." : "You are not eligible to vote.";
+console.log(message);
+```
+
+---
+
+### 6. **Logical Operators in Conditions**
+Logical operators are often used in conditional statements to combine multiple conditions.
+
+- **AND (`&&`)**: Returns `true` if both conditions are true.
+- **OR (`||`)**: Returns `true` if at least one condition is true.
+- **NOT (`!`)**: Reverses the truth value of a condition.
+
+**Example:**
+```javascript
+let age = 20;
+let isCitizen = true;
+
+if (age >= 18 && isCitizen) {
+  console.log("You can vote.");
+} else {
+  console.log("You cannot vote.");
+}
+```
+
+---
+
+## **Best Practices**
+- Always use `===` and `!==` for strict equality and inequality checks.
+- Use `default` in `switch` statements to handle unmatched cases.
+- Avoid deeply nested `if` statements for better readability.
+
+---
+
+This guide provides an overview of JavaScript conditional statements for quick reference!
+```
+
 
 
