@@ -103,6 +103,141 @@ console.log(arr); // Output: [1, 2, 3, 4]
 | **Immutability**   | Mutable                       | Mutable                        | Reference immutable           |
 
 
-# DataTypes in Javascript
+# JavaScript Data Types
+
+JavaScript has dynamic typing, meaning variables can hold values of any type. The data types in JavaScript are divided into two categories: **Primitive** and **Non-Primitive** (Reference) types.
+
+---
+
+## **Primitive Data Types**
+Primitive types are immutable and represent single values.
+
+1. **Number**
+   - Represents both integers and floating-point numbers.
+   - Example:
+     ```javascript
+     let age = 25;
+     let price = 99.99;
+     ```
+   - Special numeric values: `Infinity`, `-Infinity`, and `NaN` (Not a Number).
+
+2. **String**
+   - Represents textual data.
+   - Enclosed in single (`'`), double (`"`), or backticks (`` ` `` for template literals).
+   - Example:
+     ```javascript
+     let name = "John";
+     let greeting = `Hello, ${name}`;
+     ```
+
+3. **Boolean**
+   - Represents logical values: `true` or `false`.
+   - Example:
+     ```javascript
+     let isLoggedIn = true;
+     ```
+
+4. **Undefined**
+   - A variable that has been declared but not assigned a value.
+   - Example:
+     ```javascript
+     let x; // undefined
+     ```
+
+5. **Null**
+   - Represents an explicitly empty or non-existent value.
+   - Example:
+     ```javascript
+     let user = null;
+     ```
+
+6. **Symbol** (introduced in ES6)
+   - Used to create unique identifiers.
+   - Example:
+     ```javascript
+     let id = Symbol('uniqueId');
+     ```
+
+7. **BigInt** (introduced in ES11/ES2020)
+   - Represents integers larger than `Number.MAX_SAFE_INTEGER`.
+   - Example:
+     ```javascript
+     let bigNumber = 123456789012345678901234567890n;
+     ```
+
+---
+
+## **Non-Primitive (Reference) Data Types**
+Non-primitive types can hold collections of values and more complex entities.
+
+1. **Object**
+   - A collection of key-value pairs.
+   - Example:
+     ```javascript
+     let user = {
+       name: "John",
+       age: 30,
+     };
+     ```
+
+2. **Array**
+   - Ordered list of values.
+   - Example:
+     ```javascript
+     let numbers = [1, 2, 3, 4];
+     ```
+
+3. **Function**
+   - Block of code designed to perform a particular task.
+   - Example:
+     ```javascript
+     function greet() {
+       return "Hello, world!";
+     }
+     ```
+
+4. **Date**
+   - Represents dates and times.
+   - Example:
+     ```javascript
+     let now = new Date();
+     ```
+
+5. **RegExp**
+   - Represents regular expressions.
+   - Example:
+     ```javascript
+     let pattern = /abc/;
+     ```
+
+---
+
+## **Type Checking**
+Use the `typeof` operator to determine the type of a value.
+```javascript
+console.log(typeof 42);         // "number"
+console.log(typeof "hello");    // "string"
+console.log(typeof true);       // "boolean"
+console.log(typeof undefined);  // "undefined"
+console.log(typeof null);       // "object" (a historical quirk)
+console.log(typeof Symbol());   // "symbol"
+console.log(typeof BigInt(123)); // "bigint"
+console.log(typeof {});         // "object"
+console.log(typeof []);         // "object" (arrays are objects)
+console.log(typeof function(){}); // "function"
+```
+
+---
+
+## **Dynamic Typing**
+JavaScript allows variables to change types dynamically.
+```javascript
+let value = 42;       // Number
+value = "Hello";      // Now a String
+value = true;         // Now a Boolean
+```
+
+---
+
 
 
