@@ -28,3 +28,7 @@ const Person = {
 };
 
 console.log(Person.Age);
+
+
+let Iskay = true;
+console.log(Iskay+10);
