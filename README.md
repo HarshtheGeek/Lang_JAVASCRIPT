@@ -239,7 +239,6 @@ value = true;         // Now a Boolean
 
 ---
 
-```markdown
 # JavaScript Conditional Statements
 
 Conditional statements in JavaScript allow you to execute different blocks of code based on specific conditions.
@@ -406,8 +405,109 @@ if (age >= 18 && isCitizen) {
 
 ---
 
-This guide provides an overview of JavaScript conditional statements for quick reference!
-```
+# JavaScript Operators
+
+JavaScript operators are used to perform operations on variables and values. There are several types of operators in JavaScript, including:
+
+## 1. **Arithmetic Operators**
+These operators are used to perform mathematical operations.
+
+| Operator | Description            | Example       |
+|----------|------------------------|---------------|
+| `+`      | Addition               | `5 + 2 = 7`   |
+| `-`      | Subtraction            | `5 - 2 = 3`   |
+| `*`      | Multiplication         | `5 * 2 = 10`  |
+| `/`      | Division               | `5 / 2 = 2.5` |
+| `%`      | Modulus (Remainder)    | `5 % 2 = 1`   |
+| `++`     | Increment (post or pre)| `x++` or `++x`|
+| `--`     | Decrement (post or pre)| `x--` or `--x`|
+
+## 2. **Assignment Operators**
+These operators are used to assign values to variables.
+
+| Operator | Description        | Example         |
+|----------|--------------------|-----------------|
+| `=`      | Assignment         | `x = 10`        |
+| `+=`     | Addition Assignment| `x += 5` (same as `x = x + 5`) |
+| `-=`     | Subtraction Assignment | `x -= 5` (same as `x = x - 5`) |
+| `*=`     | Multiplication Assignment | `x *= 5` (same as `x = x * 5`) |
+| `/=`     | Division Assignment | `x /= 5` (same as `x = x / 5`) |
+| `%=`     | Modulus Assignment | `x %= 5` (same as `x = x % 5`) |
+
+## 3. **Comparison Operators**
+These operators are used to compare two values.
+
+| Operator | Description                   | Example         |
+|----------|-------------------------------|-----------------|
+| `==`     | Equal to (loose)               | `5 == '5'` returns `true` |
+| `===`    | Equal to (strict)              | `5 === '5'` returns `false` |
+| `!=`     | Not equal to (loose)           | `5 != '5'` returns `false` |
+| `!==`    | Not equal to (strict)          | `5 !== '5'` returns `true` |
+| `>`      | Greater than                   | `5 > 3` returns `true` |
+| `<`      | Less than                      | `5 < 3` returns `false` |
+| `>=`     | Greater than or equal to       | `5 >= 5` returns `true` |
+| `<=`     | Less than or equal to          | `5 <= 3` returns `false` |
+
+## 4. **Logical Operators**
+These operators are used to combine multiple conditions or expressions.
+
+| Operator | Description                    | Example                |
+|----------|--------------------------------|------------------------|
+| `&&`     | Logical AND                    | `true && false` returns `false` |
+| `||`     | Logical OR                     | `true || false` returns `true` |
+| `!`      | Logical NOT                    | `!true` returns `false` |
+
+## 5. **Unary Operators**
+These operators act on a single operand.
+
+| Operator | Description                     | Example        |
+|----------|---------------------------------|----------------|
+| `+`      | Unary plus (convert to number)  | `+'5'` returns `5` |
+| `-`      | Unary negation (convert to negative) | `-'5'` returns `-5` |
+| `++`     | Increment (pre or post)         | `++x` or `x++` |
+| `--`     | Decrement (pre or post)         | `--x` or `x--` |
+| `!`      | Logical NOT                     | `!true` returns `false` |
+
+## 6. **Bitwise Operators**
+These operators are used to perform operations on binary numbers.
+
+| Operator | Description        | Example         |
+|----------|--------------------|-----------------|
+| `&`      | Bitwise AND        | `5 & 3` returns `1`  |
+| `|`      | Bitwise OR         | `5 | 3` returns `7`  |
+| `^`      | Bitwise XOR        | `5 ^ 3` returns `6`  |
+| `~`      | Bitwise NOT        | `~5` returns `-6`    |
+| `<<`     | Left shift         | `5 << 1` returns `10`|
+| `>>`     | Right shift        | `5 >> 1` returns `2` |
+| `>>>`    | Unsigned right shift | `5 >>> 1` returns `2` |
+
+## 7. **Ternary Operator**
+A shorthand for `if-else` conditions.
+
+| Syntax             | Description                       | Example                      |
+|--------------------|-----------------------------------|------------------------------|
+| `condition ? expr1 : expr2` | Returns `expr1` if condition is `true`, otherwise returns `expr2` | `x > 10 ? 'Greater' : 'Smaller'` |
+
+## 8. **Type Operators**
+These operators are used to check types.
+
+| Operator | Description                     | Example       |
+|----------|---------------------------------|---------------|
+| `typeof` | Returns the type of a variable  | `typeof 5` returns `"number"` |
+| `instanceof` | Checks if an object is an instance of a specific class | `obj instanceof Object` returns `true` |
+
+## 9. **Spread and Rest Operators**
+These operators allow you to expand or collect elements in arrays or objects.
+
+| Operator | Description                              | Example       |
+|----------|------------------------------------------|---------------|
+| `...`    | Spread (expands elements)                | `let arr = [1, 2, 3]; let arr2 = [...arr, 4, 5]` |
+| `...`    | Rest (collects elements into an array)   | `function sum(...args) { return args.reduce((a, b) => a + b, 0); }` |
+
+## Conclusion
+JavaScript operators are essential for performing operations on variables and values. Understanding and using them correctly is fundamental to writing efficient and functional code.
+
+---
 
 
 
