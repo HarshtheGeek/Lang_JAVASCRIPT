@@ -509,5 +509,188 @@ JavaScript operators are essential for performing operations on variables and va
 
 ---
 
+# JavaScript Loops
+
+In JavaScript, loops are used to execute a block of code repeatedly as long as a specified condition is true. This is useful when working with arrays, objects, or repetitive tasks.
+
+---
+
+## 1. **`for` Loop**
+The `for` loop is used when you know the number of iterations in advance.
+
+### Syntax:
+```javascript
+for (initialization; condition; increment/decrement) {
+    // Code to execute
+}
+```
+
+### Example:
+```javascript
+for (let i = 0; i < 5; i++) {
+    console.log("Iteration:", i);
+}
+// Output: 0, 1, 2, 3, 4
+```
+
+---
+
+## 2. **`while` Loop**
+The `while` loop executes a block of code as long as the condition is true.
+
+### Syntax:
+```javascript
+while (condition) {
+    // Code to execute
+}
+```
+
+### Example:
+```javascript
+let count = 0;
+while (count < 5) {
+    console.log("Count:", count);
+    count++;
+}
+// Output: 0, 1, 2, 3, 4
+```
+
+---
+
+## 3. **`do...while` Loop**
+The `do...while` loop executes the code block **once**, and then repeats it as long as the condition is true.
+
+### Syntax:
+```javascript
+do {
+    // Code to execute
+} while (condition);
+```
+
+### Example:
+```javascript
+let count = 0;
+do {
+    console.log("Count:", count);
+    count++;
+} while (count < 5);
+// Output: 0, 1, 2, 3, 4
+```
+
+---
+
+## 4. **`for...in` Loop**
+The `for...in` loop is used to iterate over the properties of an object.
+
+### Syntax:
+```javascript
+for (key in object) {
+    // Code to execute
+}
+```
+
+### Example:
+```javascript
+const person = { name: "John", age: 30, city: "New York" };
+for (let key in person) {
+    console.log(key + ":", person[key]);
+}
+// Output:
+// name: John
+// age: 30
+// city: New York
+```
+
+---
+
+## 5. **`for...of` Loop**
+The `for...of` loop is used to iterate over iterable objects like arrays, strings, or maps.
+
+### Syntax:
+```javascript
+for (variable of iterable) {
+    // Code to execute
+}
+```
+
+### Example:
+```javascript
+const fruits = ["apple", "banana", "cherry"];
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+// Output:
+// apple
+// banana
+// cherry
+```
+
+---
+
+## 6. **`break` Statement**
+The `break` statement is used to exit a loop prematurely.
+
+### Example:
+```javascript
+for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i);
+}
+// Output: 0, 1, 2, 3, 4
+```
+
+---
+
+## 7. **`continue` Statement**
+The `continue` statement skips the current iteration and proceeds to the next iteration.
+
+### Example:
+```javascript
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) continue;
+    console.log(i);
+}
+// Output: 1, 3, 5, 7, 9
+```
+
+---
+
+## 8. **`forEach` Method**
+The `forEach` method is used to execute a function for each element in an array.
+
+### Syntax:
+```javascript
+array.forEach(callbackFunction);
+```
+
+### Example:
+```javascript
+const numbers = [1, 2, 3, 4];
+numbers.forEach((num) => {
+    console.log(num);
+});
+// Output: 1, 2, 3, 4
+```
+
+---
+
+## Summary of Loops
+
+| Loop Type       | Use Case                                       |
+|------------------|-----------------------------------------------|
+| `for`           | Known number of iterations                    |
+| `while`         | Repeated execution while condition is true     |
+| `do...while`    | Executes at least once, then checks condition  |
+| `for...in`      | Iterates over object properties                |
+| `for...of`      | Iterates over iterable objects                 |
+| `forEach`       | Iterates over array elements using a callback  |
+
+### Choosing the Right Loop
+- Use `for` when you need a counter.
+- Use `while` for conditions where iterations are not predetermined.
+- Use `for...in` for objects and `for...of` for arrays and other iterable objects.
+
+---
+
 
 
