@@ -692,6 +692,7 @@ numbers.forEach((num) => {
 
 ---
 # Functions :- Block of code designed performs specefic task.
+
 # Arrow Functions in JavaScript
 
 Arrow functions are a concise way to write function expressions in JavaScript, introduced in ES6. They provide a shorter syntax for defining functions while also altering the behavior of the `this` keyword.
