@@ -693,6 +693,8 @@ numbers.forEach((num) => {
 ---
 # Functions :- Block of code designed performs specefic task.
 
+---
+
 # Arrow Functions in JavaScript
 
 Arrow functions are a concise way to write function expressions in JavaScript, introduced in ES6. They provide a shorter syntax for defining functions while also altering the behavior of the `this` keyword.
@@ -823,7 +825,18 @@ One of the most significant differences between arrow functions and traditional 
 ## Conclusion
 
 Arrow functions offer a more succinct way to write function expressions and improve code readability. Their unique handling of `this` makes them particularly useful in many JavaScript scenarios. However, understanding their limitations is crucial for effective use in various contexts.
-```
+
+`Argument keyword` 
+
+In JavaScript, the arguments keyword is an array-like object that is available inside all regular (non-arrow) functions. It provides access to all arguments passed to a function, regardless of the number of parameters defined for the function.
+
+You cannot use argument keyword directly into the Arrow function we use the Spread operator for it.
+
+# Hoisting in Javascript
+Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope during the compilation phase. This means that you can use certain variables and functions in your code before they are declared, but how they behave depends on their declaration type.
+ 
+
+
 
 
 
