@@ -9,4 +9,11 @@ console.log(Add(2,3));
 const Sub = (a,b) => a-b;
 console.log(Sub(7,5));
 
+//Argument
+
+const addNumbers = (...num) => {
+    console.log(num)
+}
+
+addNumbers(10,20,30,40,50,60);
 
