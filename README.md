@@ -691,7 +691,15 @@ numbers.forEach((num) => {
 - Use `for...in` for objects and `for...of` for arrays and other iterable objects.
 
 ---
-# Functions :- Block of code designed performs specefic task.
+# Functions :- Block of code designed to perform a specefic task.
+
+```
+function Sum(x,y){
+    return x+y;
+}
+console.log(Sun(3,7));
+```
+**NOTE** Get a best practice of using return instead of console.logging everytime
 
 ---
 
@@ -834,7 +842,20 @@ You cannot use argument keyword directly into the Arrow function we use the Spre
 
 # Hoisting in Javascript
 Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope during the compilation phase. This means that you can use certain variables and functions in your code before they are declared, but how they behave depends on their declaration type.
- 
+
+In normal functions you can declare your function body first and you can provide an argument later on.
+Doing the same for the arrow function is not possible.
+
+```
+sayHello(); // Works because of hoisting
+
+function sayHello() {
+    console.log("Hello, World!");
+}
+
+```
+
+
 
 
 
