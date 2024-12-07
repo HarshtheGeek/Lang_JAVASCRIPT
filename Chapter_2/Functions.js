@@ -6,10 +6,17 @@ function add(a,b){
 add(10,20);
 
 
-function multiply(a,b){
-    console.log(a*b);
+function multiply(a,b){  //Arguments
+    return a + b ; 
 }
-multiply(10,20)
+multiply(10,20) // Parameters
+
+// Get a good habit of using return instead of console.log inside a functions //
+
+function Add(a,b){
+    return a + b ;
+}
+Add(10,20);
 
 
 
