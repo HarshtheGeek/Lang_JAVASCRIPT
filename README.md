@@ -700,6 +700,10 @@ function Sum(x,y){
 console.log(Sun(3,7));
 ```
 **NOTE** Get a best practice of using return instead of console.logging everytime
+`argument keyword` 
+In JavaScript, arguments are the actual values passed to a function when it is called, distinct from parameters, which are the names defined in the function declaration. Here are the key points:
+Definition: Arguments are the values supplied during a function call, e.g., in example(arg1, arg2), arg1 and arg2 are arguments.
+Accessing Arguments: Inside a function, you can access all arguments using the arguments object, which is an array-like object containing all passed arguments (available only in non-arrow functions).
 
 ---
 
