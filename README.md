@@ -880,10 +880,34 @@ sayHello(); // Works because of hoisting
 function sayHello() {
     console.log("Hello, World!");
 }
-
 ```
 
-**NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`. 
+**NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`.
+
+
+# HIGH ORDER FUNCTIONS
+A higher-order function (HOF) is defined as a function that meets at least one of the following criteria:
+**Accepts other functions as arguments: This allows the higher-order function to operate on the passed-in functions, enabling dynamic behavior.**
+**Returns a function as its result: This capability allows for the creation of new functions based on certain conditions or parameters.**
+
+# CALLBACK FUNCTIONS
+A callback function is a function that is passed as an argument to another function. The receiving function can then invoke this callback at an appropriate time, typically after completing some operation.
+**Characteristics**
+**Asynchronous Programming: Callbacks are often used in asynchronous programming to handle operations such as API calls or event handling, allowing code execution to continue while waiting for a response.**
+**Flexibility: They provide flexibility by allowing different behaviors to be defined dynamically based on the context in which they are called**
+`Used when the task is heavy`
+
+# ARRAYS
+It is defined as the collection of values of same data types
+**Note**
+You cannot reassign the variable because it is declared with the const keyword, but you can modify the properties or elements of the variable if it is an object or an array. This version clarifies that while the variable itself cannot be reassigned, its contents can still be changed if it holds a reference to an object or an array.
+
+# Some high order functions in Array
+**forEach**
+The `forEach` method in JavaScript is a powerful tool for iterating over elements in an array.
+`Overview of forEach`
+`Purpose:` The forEach method is used to execute a provided function once for each element in an array. It simplifies the process of iteration, allowing developers to focus on the logic they want to apply to each element without manually managing loop indices.
+
 
 
 
