@@ -1,3 +1,3 @@
-// Iss mei kuch high order functions ke baarei mei padhenge jo javascript mei commonly used hote hai//
+//HIGH ORDER FUNCTIONS - These are the functions that take functions as an argument
 
 // foreach(High order function // 
