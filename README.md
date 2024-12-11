@@ -700,10 +700,13 @@ function Sum(x,y){
 console.log(Sun(3,7));
 ```
 **NOTE** Get a best practice of using return instead of console.logging everytime
+
 `argument keyword` 
-In JavaScript, arguments are the actual values passed to a function when it is called, distinct from parameters, which are the names defined in the function declaration. Here are the key points:
-Definition: Arguments are the values supplied during a function call, e.g., in example(arg1, arg2), arg1 and arg2 are arguments.
-Accessing Arguments: Inside a function, you can access all arguments using the arguments object, which is an array-like object containing all passed arguments (available only in non-arrow functions).
+In JavaScript, arguments are the actual values passed to a function when it is called, distinct from parameters, which are the names defined in the function declaration. 
+
+# Here are the key points:
+**Definition:** Arguments are the values supplied during a function call, e.g., in example(arg1, arg2), arg1 and arg2 are arguments.
+**Accessing Arguments:** Inside a function, you can access all arguments using the arguments object, which is an array-like object containing all passed arguments (available only in non-arrow functions).
 
 ---
 
@@ -726,6 +729,9 @@ For a single expression, you can omit the curly braces and the `return` keyword:
 ```javascript
 const functionName = (parameters) => expression;
 ```
+
+**Note**
+You cannot use arguments inside a arrow functions. In order to tackle the problem it is recommended to use spread operator
 
 ## Key Features
 
@@ -845,10 +851,28 @@ In JavaScript, the arguments keyword is an array-like object that is available i
 You cannot use argument keyword directly into the Arrow function we use the Spread operator for it.
 
 # Hoisting in Javascript
-Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope during the compilation phase. This means that you can use certain variables and functions in your code before they are declared, but how they behave depends on their declaration type.
+**Hoisting** in JavaScript is a behavior where **variable and function declarations** are moved to the top of their scope (global or local) **before the code runs**.
+
+- **For `var`**: The declaration is hoisted, but the value (initialization) is not.  
+   Example:  
+   ```javascript
+   console.log(a); // undefined
+   var a = 10; // Declaration is hoisted, but value is not.
+   ```
+
+- **For functions**: The entire function is hoisted, so you can call it before its declaration.  
+   Example:  
+   ```javascript
+   greet(); // Works fine
+   function greet() {
+       console.log("Hello!");
+   }
+   ```
+
+- **For `let` and `const`**: Declarations are hoisted, but they cannot be used until initialized, causing an error if accessed early.
 
 In normal functions you can declare your function body first and you can provide an argument later on.
-Doing the same for the arrow function is not possible.
+**NOTE** Hoisting is not available for the arrow functions  
 
 ```
 sayHello(); // Works because of hoisting
@@ -858,6 +882,11 @@ function sayHello() {
 }
 
 ```
+
+**NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`. 
+
+
+
 
 
 
