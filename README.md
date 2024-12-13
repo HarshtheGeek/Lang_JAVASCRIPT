@@ -19,10 +19,10 @@ JavaScript runs on:
 ## Difference Between JavaScript and TypeScript
 
 | Feature           | JavaScript                     | TypeScript                        |
-|--------------------|--------------------------------|------------------------------------|
-| **Typing**        | Dynamic (no type enforcement) | Static (enforced type definitions)|
+|-------------------|--------------------------------|-----------------------------------|
+| **Typing**        | Dynamic (no type enforcement)  |Static (enforced type definitions) |
 | **Compilation**   | No (interpreted directly)      | Yes (transpiled to JavaScript)    |
-| **Error Checking**| Runtime errors                | Compile-time error checking       |
+| **Error Checking**| Runtime errors                | Compile-time error checking        |
 | **Tooling**       | Basic support in IDEs         | Excellent IDE support (e.g., VSCode)|
 | **Usage**         | Small projects, prototypes    | Large-scale, maintainable projects|
 
@@ -95,8 +95,8 @@ console.log(arr); // Output: [1, 2, 3, 4]
 
 ## Summary Table of `var`, `let`, and `const`
 
-| Feature            | `var`                         | `let`                          | `const`                        |
-|---------------------|-------------------------------|---------------------------------|--------------------------------|
+| Feature            | `var`                         | `let`                          | `const`                       |
+|--------------------|-------------------------------|--------------------------------|-------------------------------|
 | **Scope**          | Function-scoped               | Block-scoped                   | Block-scoped                  |
 | **Hoisting**       | Hoisted with `undefined`      | Hoisted but inaccessible       | Hoisted but inaccessible      |
 | **Re-declaration** | Allowed                       | Not allowed                    | Not allowed                   |
