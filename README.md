@@ -884,43 +884,142 @@ function sayHello() {
 
 **NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`.
 
+## Higher-Order Functions in JavaScript
 
-# HIGH ORDER FUNCTIONS
-A higher-order function (HOF) is defined as a function that meets at least one of the following criteria:
-**Accepts other functions as arguments: This allows the higher-order function to operate on the passed-in functions, enabling dynamic behavior.**
-**Returns a function as its result: This capability allows for the creation of new functions based on certain conditions or parameters.**
+A **higher-order function (HOF)** is a function that either accepts other functions as arguments or returns a function as its result. This characteristic allows for more dynamic and flexible programming patterns.
 
-# CALLBACK FUNCTIONS
-A callback function is a function that is passed as an argument to another function. The receiving function can then invoke this callback at an appropriate time, typically after completing some operation.
-**Characteristics**
-**Asynchronous Programming: Callbacks are often used in asynchronous programming to handle operations such as API calls or event handling, allowing code execution to continue while waiting for a response.**
-**Flexibility: They provide flexibility by allowing different behaviors to be defined dynamically based on the context in which they are called**
-`Used when the task is heavy`
+### Characteristics of Higher-Order Functions
 
-# ARRAYS
-It is defined as the collection of values of same data types
-**Note**
-You cannot reassign the variable because it is declared with the const keyword, but you can modify the properties or elements of the variable if it is an object or an array. This version clarifies that while the variable itself cannot be reassigned, its contents can still be changed if it holds a reference to an object or an array.
+1. **Accepts Functions as Arguments**: This enables the HOF to operate on the passed-in functions, allowing for customizable behavior.
+2. **Returns a Function**: This capability allows the creation of new functions based on specific conditions or parameters.
 
-# Some high order functions in Array
-**forEach**
-The `forEach` method in JavaScript is a powerful tool for iterating over elements in an array.
-`Overview of forEach`
-`Purpose:` The forEach method is used to execute a provided function once for each element in an array. It simplifies the process of iteration, allowing developers to focus on the logic they want to apply to each element without manually managing loop indices.
+### Examples of Higher-Order Functions
+
+- **Array Methods**: Common higher-order functions in JavaScript include `map()`, `filter()`, and `reduce()`. For instance:
+  - `map()` creates a new array by applying a callback function to each element of the original array.
+  - `filter()` returns a new array containing elements that meet certain criteria defined by a callback function.
+  - `reduce()` processes each element of an array to produce a single cumulative value.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map to square each number
+const squares = numbers.map(num => num * num); // [1, 4, 9, 16, 25]
+
+// Using filter to get even numbers
+const evens = numbers.filter(num => num % 2 === 0); // [2, 4]
+
+// Using reduce to sum all numbers
+const sum = numbers.reduce((accumulator, current) => accumulator + current, 0); // 15
+```
+
+## Callback Functions
+
+A **callback function** is a function passed as an argument to another function. The receiving function can invoke this callback at an appropriate time, typically after completing an operation.
+
+### Characteristics of Callback Functions
+
+- **Asynchronous Programming**: Callbacks are often used in asynchronous programming contexts, such as handling API responses or events.
+- **Flexibility**: They allow different behaviors to be defined dynamically based on the context in which they are called.
+
+### Example of a Callback Function
+
+```javascript
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = 'Data received';
+        callback(data);
+    }, 1000);
+}
+
+fetchData((data) => {
+    console.log(data); // Output: Data received
+});
+```
+
+## Arrays in JavaScript
+
+An **array** is defined as a collection of values of the same data type. In JavaScript, arrays are dynamic and can hold various types of data.
+
+### Important Note on Arrays
+
+When an array is declared with the `const` keyword, you cannot reassign the variable itself. However, you can modify its elements:
+
+```javascript
+const fruits = ['apple', 'banana', 'cherry'];
+fruits[0] = 'orange'; // This is allowed
+// fruits = ['grape', 'melon']; // This will throw an error
+```
+
+## Higher-Order Functions in Arrays
+
+### `forEach`
+
+The `forEach` method is used to execute a provided function once for each element in an array. It simplifies iteration by allowing developers to focus on the logic applied to each element without manually managing loop indices.
+
+```javascript
+const colors = ['red', 'green', 'blue'];
+colors.forEach(color => {
+    console.log(color); // Outputs each color
+});
+```
+
+## Document Object Model (DOM)
+
+The **Document Object Model (DOM)** is a programming interface that allows scripts to interact with and manipulate web documents, primarily HTML and XML. It represents the structure of a document hierarchically, enabling dynamic access and modification of content and styles.
+
+### The Document Object
+
+The **document object** serves as the entry point for accessing all elements within an HTML document:
+
+- **Hierarchy**: The document object is a child of the window object and represents the entire HTML document loaded in that window.
+- **Accessing Elements**:
+  - `document.title` retrieves the title of the document.
+  - `document.body` accesses the body element.
+  - `document.getElementById('id')` retrieves specific elements by their ID.
+
+```javascript
+console.log(document.title); // Outputs the title of the document
+document.body.style.backgroundColor = 'lightblue'; // Changes background color
+```
+
+# Query Selector
+The querySelector method in JavaScript is a powerful tool for selecting elements from the Document Object Model (DOM) using CSS selectors. It allows developers to easily access and manipulate HTML elements based on their attributes, classes, IDs, and other selectors.
+
+**Overview of querySelector**
+Purpose: The querySelector method returns the first element within the document that matches a specified CSS selector. If no matching element is found, it returns null.
+Syntax: The method is called on the document object and takes a single string parameter representing the CSS selector.
+
+```
+document.querySelector(selector);
+```
+
+```
+const head = document.querySelector("head")
+        console.log(head.innerHTML)
+```
+this piece of code will console.log the innerHTML code written inside the head tag and the output can be as follows : 
+```
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hemlo babies</title>
+```
+
+# Difference between querySelector & QuerySelectorAll
+
+Let us suppose there are divs inside a div. Always remember ki jo humara query selecetor hota hai woh line by line cheezo ko print karta hai matlab it dosent matter ki kaun sa div kiske andar hai. Agar sequence mei chota div is first before the bada div than chota div ki values will be manipulated
+
+# Differences Between `querySelector` and `querySelectorAll`
+
+| Feature                     | `querySelector`                          | `querySelectorAll`                       |
+|-----------------------------|-----------------------------------------|------------------------------------------|
+| **Return Type**             | Returns the first matching element or `null` if no match is found. | Returns a `NodeList` of all matching elements. An empty `NodeList` is returned if no matches are found. |
+| **Usage**                   | Use when you need a single element.   | Use when you need to retrieve multiple elements. |
+| **Performance**             | More efficient for selecting a single element, as it stops searching after finding the first match. | Searches the entire document for all matches, which may incur slight performance overhead. |
+| **Accessing Elements**      | Directly returns the element for immediate manipulation (e.g., changing styles or attributes). | Requires indexing into the `NodeList` to access individual elements (e.g., `nodeList[0]`). |
+| **Live vs Static**          | Returns a live reference to the matched element. | Returns a static list of elements that does not update when the DOM changes after selection. |
 
 
-
-# DOM - DOCUMENT OBJECT MODEL
-The Document Object Model (DOM) is a programming interface that allows scripts to interact with and manipulate web documents, primarily HTML and XML. It represents the structure of a document in a hierarchical manner, allowing developers to access and modify the content, structure, and style of web pages dynamically.
-
-# The document object
-The document object is a crucial part of the DOM. It serves as the entry point for accessing all elements within an HTML document. Here's how it functions:
-**Hierarchy:** The document object is a child of the window object in the browser's object hierarchy. It represents the entire HTML document loaded in that window67.
-**Accessing Elements:** Using the document object, developers can retrieve various properties related to the HTML content. For example:
--`document.title` retrieves the title of the document.
--`document.body` accesses the body element of the document.
--`document.getElementById('id')` allows access to specific elements by their ID
--`document.write`
 
 
 
