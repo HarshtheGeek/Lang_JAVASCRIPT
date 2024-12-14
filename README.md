@@ -19,10 +19,10 @@ JavaScript runs on:
 ## Difference Between JavaScript and TypeScript
 
 | Feature           | JavaScript                     | TypeScript                        |
-|--------------------|--------------------------------|------------------------------------|
-| **Typing**        | Dynamic (no type enforcement) | Static (enforced type definitions)|
+|-------------------|--------------------------------|-----------------------------------|
+| **Typing**        | Dynamic (no type enforcement)  |Static (enforced type definitions) |
 | **Compilation**   | No (interpreted directly)      | Yes (transpiled to JavaScript)    |
-| **Error Checking**| Runtime errors                | Compile-time error checking       |
+| **Error Checking**| Runtime errors                | Compile-time error checking        |
 | **Tooling**       | Basic support in IDEs         | Excellent IDE support (e.g., VSCode)|
 | **Usage**         | Small projects, prototypes    | Large-scale, maintainable projects|
 
@@ -95,8 +95,8 @@ console.log(arr); // Output: [1, 2, 3, 4]
 
 ## Summary Table of `var`, `let`, and `const`
 
-| Feature            | `var`                         | `let`                          | `const`                        |
-|---------------------|-------------------------------|---------------------------------|--------------------------------|
+| Feature            | `var`                         | `let`                          | `const`                       |
+|--------------------|-------------------------------|--------------------------------|-------------------------------|
 | **Scope**          | Function-scoped               | Block-scoped                   | Block-scoped                  |
 | **Hoisting**       | Hoisted with `undefined`      | Hoisted but inaccessible       | Hoisted but inaccessible      |
 | **Re-declaration** | Allowed                       | Not allowed                    | Not allowed                   |
@@ -880,10 +880,47 @@ sayHello(); // Works because of hoisting
 function sayHello() {
     console.log("Hello, World!");
 }
-
 ```
 
-**NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`. 
+**NOTE** When using the **`this` keyword** inside a **normal function**, it refers to the **object** that calls the function. However, when **`this`** is used inside an **arrow function**, it refers to the **`this` value of the surrounding scope** (lexical scope), which could be the **global object** or the enclosing function's `this`.
+
+
+# HIGH ORDER FUNCTIONS
+A higher-order function (HOF) is defined as a function that meets at least one of the following criteria:
+**Accepts other functions as arguments: This allows the higher-order function to operate on the passed-in functions, enabling dynamic behavior.**
+**Returns a function as its result: This capability allows for the creation of new functions based on certain conditions or parameters.**
+
+# CALLBACK FUNCTIONS
+A callback function is a function that is passed as an argument to another function. The receiving function can then invoke this callback at an appropriate time, typically after completing some operation.
+**Characteristics**
+**Asynchronous Programming: Callbacks are often used in asynchronous programming to handle operations such as API calls or event handling, allowing code execution to continue while waiting for a response.**
+**Flexibility: They provide flexibility by allowing different behaviors to be defined dynamically based on the context in which they are called**
+`Used when the task is heavy`
+
+# ARRAYS
+It is defined as the collection of values of same data types
+**Note**
+You cannot reassign the variable because it is declared with the const keyword, but you can modify the properties or elements of the variable if it is an object or an array. This version clarifies that while the variable itself cannot be reassigned, its contents can still be changed if it holds a reference to an object or an array.
+
+# Some high order functions in Array
+**forEach**
+The `forEach` method in JavaScript is a powerful tool for iterating over elements in an array.
+`Overview of forEach`
+`Purpose:` The forEach method is used to execute a provided function once for each element in an array. It simplifies the process of iteration, allowing developers to focus on the logic they want to apply to each element without manually managing loop indices.
+
+
+
+# DOM - DOCUMENT OBJECT MODEL
+The Document Object Model (DOM) is a programming interface that allows scripts to interact with and manipulate web documents, primarily HTML and XML. It represents the structure of a document in a hierarchical manner, allowing developers to access and modify the content, structure, and style of web pages dynamically.
+
+# The document object
+The document object is a crucial part of the DOM. It serves as the entry point for accessing all elements within an HTML document. Here's how it functions:
+**Hierarchy:** The document object is a child of the window object in the browser's object hierarchy. It represents the entire HTML document loaded in that window67.
+**Accessing Elements:** Using the document object, developers can retrieve various properties related to the HTML content. For example:
+-`document.title` retrieves the title of the document.
+-`document.body` accesses the body element of the document.
+-`document.getElementById('id')` allows access to specific elements by their ID
+-`document.write`
 
 
 
