@@ -910,6 +910,19 @@ The `forEach` method in JavaScript is a powerful tool for iterating over element
 
 
 
+# DOM - DOCUMENT OBJECT MODEL
+The Document Object Model (DOM) is a programming interface that allows scripts to interact with and manipulate web documents, primarily HTML and XML. It represents the structure of a document in a hierarchical manner, allowing developers to access and modify the content, structure, and style of web pages dynamically.
+
+# The document object
+The document object is a crucial part of the DOM. It serves as the entry point for accessing all elements within an HTML document. Here's how it functions:
+**Hierarchy:** The document object is a child of the window object in the browser's object hierarchy. It represents the entire HTML document loaded in that window67.
+**Accessing Elements:** Using the document object, developers can retrieve various properties related to the HTML content. For example:
+-`document.title` retrieves the title of the document.
+-`document.body` accesses the body element of the document.
+-`document.getElementById('id')` allows access to specific elements by their ID
+-`document.write`
+
+
 
 
 
