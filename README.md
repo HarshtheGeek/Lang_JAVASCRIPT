@@ -977,6 +977,7 @@ The **document object** serves as the entry point for accessing all elements wit
   - `document.title` retrieves the title of the document.
   - `document.body` accesses the body element.
   - `document.getElementById('id')` retrieves specific elements by their ID.
+  
 
 ```javascript
 console.log(document.title); // Outputs the title of the document
@@ -1018,6 +1019,18 @@ Let us suppose there are divs inside a div. Always remember ki jo humara query s
 | **Performance**             | More efficient for selecting a single element, as it stops searching after finding the first match. | Searches the entire document for all matches, which may incur slight performance overhead. |
 | **Accessing Elements**      | Directly returns the element for immediate manipulation (e.g., changing styles or attributes). | Requires indexing into the `NodeList` to access individual elements (e.g., `nodeList[0]`). |
 | **Live vs Static**          | Returns a live reference to the matched element. | Returns a static list of elements that does not update when the DOM changes after selection. |
+
+
+**Note**
+for the id, agar do id ya usse jyada hai toh humesha yaad rakhna ki priority uss id ko di jaayegi jiski priority pehle hogi.
+And the id is using `#`
+For class we use `.`
+
+```
+<span id='Username'>Harsh vishwakarma</span>
+    const Username = document.querySelector("#Username");
+    Username.innertext = "Rajkumar vishwakarma"
+```
 
 
 
