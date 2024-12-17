@@ -1032,6 +1032,16 @@ For class we use `.`
     Username.innertext = "Rajkumar vishwakarma"
 ```
 
+```
+<script>
+        const el = document.getElementById("Username");
+        console.log(el);
+        el.classList.add("red","underline")
+        console.log(el.classList)
+        console.log(el.parentElement)
+    </script>
+```
+
 
 
 
