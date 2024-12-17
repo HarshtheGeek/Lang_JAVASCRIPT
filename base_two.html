@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+</head>
+<body>
+    <style>
+        .red{
+            color : red
+        }
+        .underline{
+            text-decoration:  underline;
+        }
+    </style>
+    <h1>Welcome to Your Website <span id="Username">Harsh Vishwakarma</span></h1>
+    <p class="block">This is a simple HTML boilerplate.</p>
+    <script>
+        const el = document.getElementById("Username");
+        console.log(el);
+        el.classList.add("red","underline")
+        console.log(el.classList)
+        console.log(el.parentElement)
+    </script>
+</body>
+</html>
