@@ -1041,6 +1041,15 @@ For class we use `.`
         console.log(el.parentElement)
     </script>
 ```
+There is another way of getting elements form the class and that can be done using 
+```
+document.getElementsByClassName
+
+```
+
+
+# EVENT LISTENER
+
 
 
 
