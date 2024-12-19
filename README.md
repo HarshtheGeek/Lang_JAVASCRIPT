@@ -1049,7 +1049,7 @@ document.getElementsByClassName
 
 
 # EVENT LISTENER
-
+An event listener in JavaScript is a function that waits for a specific event to occur on a particular element in the DOM (Document Object Model). When the event occurs, the event listener executes the specified function, allowing developers to create interactive web applications.
 
 
 
