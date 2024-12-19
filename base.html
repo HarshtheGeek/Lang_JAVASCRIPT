@@ -7,12 +7,19 @@
 </head>
 <h1>Demo javascript page</h1>
 <body>
+    <button id="Clickbutton">
+        Click me
+    </button>
     <script>
-        
         const Name = prompt("What is your name baby girl")
         document.write("Hello "+ Name)
         const head = document.querySelector("head")
         head.innerHTML = "<h1> Adios amigos </h1>"
+
+        const el = document.getElementById("Clickbutton")
+        el.addEventListener("click",()=> {
+            console.log("The button has been clicked")
+        })
     </script>
 </body>
 </html>
