@@ -1052,6 +1052,19 @@ document.getElementsByClassName
 An event listener in JavaScript is a function that waits for a specific event to occur on a particular element in the DOM (Document Object Model). When the event occurs, the event listener executes the specified function, allowing developers to create interactive web applications.
 
 
+# Splice in Javascript
+
+The `splice()` method in JavaScript is used to **change the contents of an array** by removing, replacing, or adding elements.
+
+---
+
+## 🧠 Syntax
+
+```js
+array.splice(startIndex, deleteCount, item1, item2, ...)
+
+
+
 
 
 
