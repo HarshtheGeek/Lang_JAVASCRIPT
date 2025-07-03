@@ -1479,6 +1479,389 @@ console.log(userQuery(5)); // SELECT * FROM users WHERE id = 5
 | Common in backend | Middleware, rate limiting, config-based function creation |
 
 ---
+Of course, Harsh. Let’s explain **closures** and **lexical scope** (also called a **lexical environment**) in a **simple, beginner-friendly** way without any fluff.
+
+---
+
+## 1. **Lexical Scope (or Lexical Environment)**
+
+### What it means:
+
+**"Lexical"** means **based on where something is written in your code**.
+
+In JavaScript, functions are able to **see variables that are written outside of them**, but **not the other way around**.
+
+---
+
+### Example:
+
+```js
+function outer() {
+  let message = "Hello from outer";
+
+  function inner() {
+    console.log(message); // inner can see message
+  }
+
+  inner();
+}
+
+outer();
+```
+
+### What happens:
+
+* The `inner()` function is **written inside** `outer()`
+* So it can **access everything** in `outer()` (like `message`)
+* This is because of **lexical scope**
+
+---
+
+### Flip it:
+
+```js
+function inner() {
+  console.log(message); // error: message is not defined
+}
+
+function outer() {
+  let message = "Hello";
+  inner();
+}
+
+outer();
+```
+
+Now `inner()` cannot see `message` — because `message` is defined in `outer()`, and `inner()` is outside.
+
+**Functions can look outward, but not inward.**
+
+---
+
+## 2. **Closure**
+
+### What is a closure?
+
+A **closure** is when a function **remembers variables from the place where it was created**, even **after** that outer function has finished running.
+
+In short:
+
+> A closure allows a function to keep using variables from its outer function **even after** that outer function is done.
+
+---
+
+### Example:
+
+```js
+function outer() {
+  let count = 0;
+
+  return function inner() {
+    count++;
+    console.log("Count is", count);
+  };
+}
+
+const counter = outer(); // outer runs, and returns inner
+
+counter(); // Count is 1
+counter(); // Count is 2
+counter(); // Count is 3
+```
+
+### What happens:
+
+* `outer()` runs and creates `count`
+* Then it returns `inner()`
+* Even though `outer()` is finished, `inner()` still **remembers** the variable `count`
+* That's a **closure**
+
+---
+
+### Why is this useful?
+
+Closures let you:
+
+* Keep **private data** safe (like `count`)
+* Create things like counters, banks, or game scores where the data should persist but not be visible to others
+
+---
+
+### Real-world example:
+
+Imagine a box with a secret number inside (like `count`). You give someone a button (the inner function) that **adds 1 to that secret** every time they press it. But they **can’t see or change the number directly** — only use the button.
+
+That’s a closure.
+
+---
+
+## Summary
+
+| Concept       | What It Means                                                 | Example Result                             |
+| ------------- | ------------------------------------------------------------- | ------------------------------------------ |
+| Lexical Scope | Functions can access variables where they are **written**     | Inner function can see outer variables     |
+| Closure       | A function **remembers** outer variables even after it's gone | Counter that keeps counting after creation |
+
+---
+
+Absolutely, Harsh. Below are **GitHub-ready, clean, and detailed notes** on:
+
+* **Arrow Functions**
+* **`this` keyword**
+* **DOM (Document Object Model)**
+
+All written with clear explanations and real code examples — suitable for studying or documenting in a GitHub repo.
+
+---
+
+# JavaScript: Arrow Functions
+
+## 1. What Are Arrow Functions?
+
+Arrow functions are a **shorter way to write functions** in JavaScript. They were introduced in ES6 (2015).
+
+### Basic Syntax
+
+```js
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => {
+  return a + b;
+};
+```
+
+### One-liner (Implicit Return)
+
+```js
+const add = (a, b) => a + b;
+```
+
+If the body is just a single expression, the `return` is implicit — no need to write it.
+
+---
+
+## 2. Differences from Regular Functions
+
+### a) Syntax
+
+Arrow functions are more concise, especially useful for inline functions and callbacks.
+
+### b) No Own `this`
+
+Arrow functions **do not have their own `this`**. They inherit `this` from the surrounding (lexical) context.
+
+This is a major difference and is crucial to understand — see the next section on `this`.
+
+---
+
+## 3. Examples
+
+### Example 1: Regular Arrow Function
+
+```js
+const greet = name => `Hello, ${name}`;
+console.log(greet("Harsh")); // Hello, Harsh
+```
+
+### Example 2: Used in Array Methods
+
+```js
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(n => n * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
+
+---
+
+# JavaScript: `this` Keyword
+
+## 1. What is `this`?
+
+In JavaScript, `this` refers to the **object that is currently executing the function**.
+
+Its value depends on **how the function is called**, not where it is defined.
+
+---
+
+## 2. `this` in Different Contexts
+
+### a) In a Regular Function Inside an Object
+
+```js
+const person = {
+  name: "Harsh",
+  greet: function () {
+    console.log(this.name);
+  }
+};
+
+person.greet(); // Output: Harsh
+```
+
+Here, `this` refers to the `person` object because the function is called with `person.greet()`.
+
+---
+
+### b) In an Arrow Function
+
+```js
+const person = {
+  name: "Harsh",
+  greet: () => {
+    console.log(this.name);
+  }
+};
+
+person.greet(); // Output: undefined (in browsers)
+```
+
+Arrow functions **do not get their own `this`**. They use `this` from the **outer lexical scope**, which in this case is the global scope — and `this.name` is undefined there.
+
+---
+
+### c) In Global Scope
+
+```js
+console.log(this); // In browser: Window object
+```
+
+---
+
+### d) In Event Listeners
+
+```js
+const button = document.getElementById("btn");
+
+button.addEventListener("click", function () {
+  console.log(this); // Refers to the button
+});
+```
+
+---
+
+## 3. Summary of `this` Behavior
+
+| Context                       | What `this` refers to                     |
+| ----------------------------- | ----------------------------------------- |
+| Regular function in object    | The object that called the function       |
+| Arrow function                | The surrounding (outer) lexical `this`    |
+| Global scope (browser)        | `window` object                           |
+| In event listener (non-arrow) | The HTML element that triggered the event |
+
+---
+
+# JavaScript: DOM (Document Object Model)
+
+## 1. What is the DOM?
+
+DOM stands for **Document Object Model**.
+It is the **programmatic representation of a web page**.
+Using JavaScript, you can interact with and change the page content, structure, and style via the DOM.
+
+---
+
+## 2. Accessing Elements
+
+### By ID
+
+```js
+const element = document.getElementById("myId");
+```
+
+### By Class Name
+
+```js
+const items = document.getElementsByClassName("myClass");
+```
+
+### By Tag Name
+
+```js
+const divs = document.getElementsByTagName("div");
+```
+
+### Using Query Selectors
+
+```js
+document.querySelector(".myClass");
+document.querySelectorAll("ul li");
+```
+
+---
+
+## 3. Modifying Elements
+
+### Change Text
+
+```js
+document.getElementById("message").textContent = "Hello!";
+```
+
+### Change HTML Content
+
+```js
+element.innerHTML = "<strong>Bold text</strong>";
+```
+
+### Change Style
+
+```js
+element.style.color = "red";
+element.style.backgroundColor = "yellow";
+```
+
+---
+
+## 4. Adding Event Listeners
+
+### Example: Button Click
+
+```html
+<button id="clickBtn">Click Me</button>
+<p id="output"></p>
+```
+
+```js
+document.getElementById("clickBtn").addEventListener("click", function () {
+  document.getElementById("output").textContent = "Button was clicked!";
+});
+```
+
+---
+
+## 5. Creating and Adding Elements
+
+```js
+const newElement = document.createElement("p");
+newElement.textContent = "This is new!";
+document.body.appendChild(newElement);
+```
+
+---
+
+## 6. Summary
+
+| Task                | Code Example                            |
+| ------------------- | --------------------------------------- |
+| Select by ID        | `getElementById("id")`                  |
+| Select by class/tag | `getElementsByClassName("class")`       |
+| Add event listener  | `element.addEventListener("click", fn)` |
+| Change text         | `element.textContent = "new text"`      |
+| Add element to page | `parent.appendChild(newElement)`        |
+
+---
+
+## Final Thoughts
+
+* Use **arrow functions** for short, simple logic (especially in array methods)
+* Use **regular functions** when you need `this` to refer to the object
+* Use the **DOM** to make your web pages interactive
+
+
 
 
 
