@@ -100,9 +100,10 @@ JavaScript supports **asynchronous programming**, which allows it to perform tas
 ## Difference Between `var`, `let`, and `const`
 
 ### 1. `var`
-- **Scope**: Function-scoped.
+- **Scope**: Function-scoped and Not blocked
 - **Hoisting**: Variables declared with `var` are hoisted to the top of their scope, but their value remains `undefined` until the declaration is executed.
 - **Re-declaration**: Can be re-declared within the same scope. we can also change the value
+- **Use** : Useful when declaring the legacy code
 
 #### Example:
 ```javascript
@@ -148,16 +149,13 @@ exampleLet();
 
 #### Example:
 ```javascript
-const z = 30;
-console.log(z); // Output: 30
+const a = 10;
+a = 20; // ❌ Not allowed — because you're changing the value of a
+```
 
-// z = 40; Uncommenting this will cause a TypeError
-
-const arr = [1, 2, 3];
-arr.push(4); // Allowed: modifies the content of the array
-console.log(arr); // Output: [1, 2, 3, 4]
-
-// const arr = []; Uncommenting this will cause a re-declaration error
+```javascript
+const person = { name: "Harsh" };
+person.name = "Updated"; // ✅ Allowed — we are changing inside the object
 ```
 
 ---
@@ -171,145 +169,472 @@ console.log(arr); // Output: [1, 2, 3, 4]
 | **Re-declaration** | Allowed                       | Not allowed                    | Not allowed                   |
 | **Immutability**   | Mutable                       | Mutable                        | Reference immutable           |
 
+| Scope Type     | Think of it like...                                              |
+| -------------- | ---------------------------------------------------------------- |
+| Function Scope | You're allowed to move **freely in the house**, but not outside. |
+| Block Scope    | You're only allowed to be in **one specific room**.              |
+
 
 # JavaScript Data Types
 
 JavaScript has dynamic typing, meaning variables can hold values of any type. The data types in JavaScript are divided into two categories: **Primitive** and **Non-Primitive** (Reference) types.
 
+Absolutely, Harsh. Here's your GitHub-style JavaScript notes focusing **only on primitive data types** with clean, detailed explanations, common mistakes you made earlier, and corrected concepts:
+
 ---
 
 ## **Primitive Data Types**
-Primitive types are immutable and represent single values.
 
-1. **Number**
-   - Represents both integers and floating-point numbers.
-   - Example:
-     ```javascript
-     let age = 25;
-     let price = 99.99;
-     ```
-   - Special numeric values: `Infinity`, `-Infinity`, and `NaN` (Not a Number).
-
-2. **String**
-   - Represents textual data.
-   - Enclosed in single (`'`), double (`"`), or backticks (`` ` `` for template literals).
-   - Example:
-     ```javascript
-     let name = "John";
-     let greeting = `Hello, ${name}`;
-     ```
-
-3. **Boolean**
-   - Represents logical values: `true` or `false`.
-   - Example:
-     ```javascript
-     let isLoggedIn = true;
-     ```
-
-4. **Undefined**
-   - A variable that has been declared but not assigned a value.
-   - Example:
-     ```javascript
-     let x; // undefined
-     ```
-
-5. **Null**
-   - Represents an explicitly empty or non-existent value.
-   - Example:
-     ```javascript
-     let user = null;
-     ```
-
-6. **Symbol** (introduced in ES6)
-   - Used to create unique identifiers.
-   - Example:
-     ```javascript
-     let id = Symbol('uniqueId');
-     ```
-
-7. **BigInt** (introduced in ES11/ES2020)
-   - Represents integers larger than `Number.MAX_SAFE_INTEGER`.
-   - Example:
-     ```javascript
-     let bigNumber = 123456789012345678901234567890n;
-     ```
+Primitive types are immutable — they store **single values** and are **not objects**. When you perform operations on them, they do **not modify the original value**, but rather produce new values.
 
 ---
 
-## **Non-Primitive (Reference) Data Types**
-Non-primitive types can hold collections of values and more complex entities.
+### 1. **Number**
 
-1. **Object**
-   - A collection of key-value pairs.
-   - Example:
-     ```javascript
-     let user = {
-       name: "John",
-       age: 30,
-     };
-     ```
+* Represents both **integers** and **floating-point numbers**.
+* Can also represent special numeric values like:
 
-2. **Array**
-   - Ordered list of values.
-   - Example:
-     ```javascript
-     let numbers = [1, 2, 3, 4];
-     ```
+  * `NaN` (Not a Number)
+  * `Infinity`, `-Infinity`
 
-3. **Function**
-   - Block of code designed to perform a particular task.
-   - Example:
-     ```javascript
-     function greet() {
-       return "Hello, world!";
-     }
-     ```
+#### Examples:
 
-4. **Date**
-   - Represents dates and times.
-   - Example:
-     ```javascript
-     let now = new Date();
-     ```
+```javascript
+let age = 25;
+let price = 99.99;
+let invalid = Number("123abc"); // NaN
+```
 
-5. **RegExp**
-   - Represents regular expressions.
-   - It is like a search tool that helps JavaScript find, test, or replace specific patterns in a string.
-   - Example:
-     ```javascript
-     let pattern = /abc/;
-     ```
-     this will find the variables with the letter abc
+#### Important Details:
+
+* `typeof NaN` is `"number"` — this is unintuitive but correct.
+* `NaN === NaN` returns `false`. NaN is the only value in JS that is **not equal to itself**.
+* `0.1 + 0.2 == 0.3` returns `false` because of **floating-point precision issues**.
+
+#### Common Mistake You Made:
+
+* You said `0.1 + 0.2 == 0.3` is `true`, but it's `false`.
+
+---
+
+### 2. **String**
+
+* Represents textual data.
+* Can be declared using:
+
+  * `'single quotes'`
+  * `"double quotes"`
+  * `` `backticks` `` (template literals for interpolation)
+
+#### Examples:
+
+```javascript
+let name = "Harsh";
+let greeting = `Hello, ${name}`;
+console.log("10" + 5); // "105" - string concatenation
+```
+
+#### Important Details:
+
+* `"5" + 5` → `"55"` (string)
+* `"5" - 5` → `0` (number) → implicit coercion
+* `"hello".toUpperCase()` → `"HELLO"` (not `"Hello"`)
+
+#### Common Mistake You Made:
+
+* You said `"hello".toUpperCase()` returns `"Hello"` — it returns all uppercase.
+
+---
+
+### 3. **Boolean**
+
+* Represents two values: `true` and `false`.
+
+#### Falsy values in JS:
+
+```javascript
+false
+0
+""
+null
+undefined
+NaN
+```
+
+#### Examples:
+
+```javascript
+Boolean("")      // false
+Boolean("0")     // true (non-empty string is truthy)
+Boolean(0)       // false
+```
+
+#### Common Mistake You Made:
+
+* You said `Boolean("")`, `Boolean("0")`, `Boolean(0)` result in `null`, `error`, and `false` respectively. Correct answers:
+
+  * `Boolean("")` → `false`
+  * `Boolean("0")` → `true`
+  * `Boolean(0)` → `false`
+
+---
+
+### 4. **Undefined**
+
+* A variable that has been **declared but not assigned a value**.
+
+#### Example:
+
+```javascript
+let x;
+console.log(x); // undefined
+```
+
+#### Details:
+
+* `typeof undefined` → `"undefined"`
+* Commonly returned by functions that do not return anything.
+
+---
+
+### 5. **Null**
+
+* Used to represent an **intentional absence of value**.
+
+#### Example:
+
+```javascript
+let data = null;
+```
+
+#### Important:
+
+* `typeof null` returns `"object"` — this is a known JavaScript quirk.
+
+#### Common Mistake You Made:
+
+* You gave no clear answer for `typeof null` — remember: it's `"object"` due to legacy reasons.
+
+---
+
+### 6. **Symbol** (introduced in ES6)
+
+* Used to create **unique identifiers**.
+* Even if two symbols have the same description, they are different.
+
+#### Example:
+
+```javascript
+let id1 = Symbol('id');
+let id2 = Symbol('id');
+console.log(id1 === id2); // false
+```
+
+---
+
+### 7. **BigInt** (introduced in ES2020)
+
+* Used for very large integers beyond `Number.MAX_SAFE_INTEGER`.
+
+#### Example:
+
+```javascript
+let big = 123456789012345678901234567890n;
+```
+
+#### Important:
+
+* `typeof big` → `"bigint"`
+* Cannot mix BigInt with regular numbers directly:
+
+```javascript
+let x = 10n + 20n;   // ✅
+let y = 10n + 20;    // ❌ TypeError
+```
+
+#### Common Mistake You Made:
+
+* You didn’t recognize the `n` as BigInt — it’s crucial for large integer literals.
 
 ---
 
 ## **Type Checking**
-Use the `typeof` operator to determine the type of a value.
+
+Use `typeof` to check the type of any value:
+
 ```javascript
-console.log(typeof 42);         // "number"
-console.log(typeof "hello");    // "string"
-console.log(typeof true);       // "boolean"
-console.log(typeof undefined);  // "undefined"
-console.log(typeof null);       // "object" (a historical quirk)
-console.log(typeof Symbol());   // "symbol"
-console.log(typeof BigInt(123)); // "bigint"
-console.log(typeof {});         // "object"
-console.log(typeof []);         // "object" (arrays are objects)
-console.log(typeof function(){}); // "function"
+typeof 42;              // "number"
+typeof "hello";         // "string"
+typeof true;            // "boolean"
+typeof undefined;       // "undefined"
+typeof null;            // "object" (quirk)
+typeof Symbol();        // "symbol"
+typeof 10n;             // "bigint"
+typeof {};              // "object"
+typeof [];              // "object" (arrays are technically objects)
+typeof function () {};  // "function"
 ```
 
 ---
 
 ## **Dynamic Typing**
-JavaScript allows variables to change types dynamically.
+
+JavaScript is **dynamically typed**, meaning variables can change type at runtime.
+
 ```javascript
-let value = 42;       // Number
-value = "Hello";      // Now a String
-value = true;         // Now a Boolean
+let value = 42;       // number
+value = "hello";      // now a string
+value = true;         // now a boolean
+```
+Sure, Harsh. Here's a detailed explanation of **Type Coercion in JavaScript** written in clean, GitHub-style Markdown format for your notes:
+
+---
+
+## **Type Coercion in JavaScript**
+
+**Type coercion** is the process by which JavaScript **automatically converts values from one data type to another** when required by the context (such as operators or comparisons).
+
+JavaScript is a **dynamically typed** and **loosely typed** language. This means:
+
+* Variables can hold values of any type.
+* The language will often try to automatically convert one type to another to make an operation valid.
+
+---
+
+## **Types of Coercion**
+
+### 1. **Implicit Coercion**
+
+This happens **automatically** when JavaScript needs to convert types during operations.
+
+#### Examples:
+
+```javascript
+"5" + 1        // "51" → 1 is converted to "1" (string)
+"5" - 1        // 4   → "5" is converted to 5 (number)
+true + 1       // 2   → true becomes 1
+false + "1"    // "false1" → false becomes string "false"
+```
+
+JavaScript decides how to coerce the values based on the **operator** and **types involved**.
+
+---
+
+### 2. **Explicit Coercion**
+
+This is when **you manually convert** the data type using built-in functions.
+
+#### Examples:
+
+```javascript
+String(123);       // "123"
+Number("456");     // 456
+Boolean(0);        // false
+Boolean("hello");  // true
+```
+---
+
+## **Coercion Rules**
+
+### **String Coercion**
+
+Occurs when using the `+` operator with a string.
+
+```javascript
+"10" + 5      // "105"
+"true" + true // "truetrue"
+```
+
+Any value combined with a string using `+` will be **converted to a string**.
+
+---
+
+### **Number Coercion**
+
+Occurs with arithmetic operations like `-`, `*`, `/`, or comparison operators.
+
+```javascript
+"10" - 5      // 5
+"3" * "2"     // 6
+true + 1      // 2
+false - 1     // -1
+```
+
+In these contexts, non-numbers are coerced **into numbers** if possible.
+
+---
+
+### **Boolean Coercion**
+
+Happens in conditional contexts or logical operations.
+
+#### Falsy values in JavaScript:
+
+```javascript
+false
+0
+-0
+""
+null
+undefined
+NaN
+```
+
+All other values are **truthy**.
+
+```javascript
+Boolean(0);        // false
+Boolean("");       // false
+Boolean("0");      // true
+Boolean("hello");  // true
 ```
 
 ---
 
+### **Null and Undefined**
+
+```javascript
+null == undefined    // true (loose equality)
+null === undefined   // false (strict equality)
+
+Number(null);        // 0
+Number(undefined);   // NaN
+
+null + 1             // 1
+undefined + 1        // NaN
+```
+
+* `null` is loosely equal to `undefined` but they are **not the same type**.
+* `null` is coerced to `0` when used in numeric operations.
+* `undefined` becomes `NaN` in arithmetic operations.
+
+---
+
+## **Coercion in Equality Comparisons**
+
+### Loose Equality (`==`)
+
+Performs **type coercion** when comparing values of different types.
+
+```javascript
+"5" == 5          // true
+false == 0        // true
+null == undefined // true
+[] == false       // true
+[] == 0           // true
+```
+
+### Strict Equality (`===`)
+
+**No type coercion**. Values must be of the **same type** and **same value**.
+
+```javascript
+"5" === 5         // false
+false === 0       // false
+null === undefined // false
+[] === false      // false
+```
+
+---
+
+## **Common Pitfalls and Gotchas**
+
+| Expression      | Result              | Reason                            |
+| --------------- | ------------------- | --------------------------------- |
+| `"5" + 2`       | `"52"`              | String concatenation              |
+| `"5" - 2`       | `3`                 | String coerced to number          |
+| `true + true`   | `2`                 | `true` becomes `1`                |
+| `null + 1`      | `1`                 | `null` becomes `0`                |
+| `undefined + 1` | `NaN`               | `undefined` becomes `NaN`         |
+| `[] + {}`       | `"[object Object]"` | Array and object become strings   |
+| `{} + []`       | `0` (or object)     | Depends on JS engine, very tricky |
+
+---
+
+## **Best Practices**
+
+* Use **explicit coercion** when needed to make the code predictable.
+
+  ```javascript
+  Number("123");     // ✅ instead of relying on "123" * 1
+  Boolean(value);    // ✅ instead of `if (value)`
+  ```
+* Prefer `===` over `==` to avoid unexpected coercion.
+* Understand which operators cause coercion (`+`, `-`, logical operators, etc.)
+
+Here's a clear and detailed explanation of the difference between `==` and `===` in JavaScript, written in a GitHub-style format to fit your notes:
+
+---
+
+## **Difference Between `==` and `===`**
+
+In JavaScript, both `==` and `===` are **comparison operators**, but they behave differently:
+
+---
+
+### `==` (Loose Equality)
+
+* **Performs type coercion** if the two values are not of the same type.
+* It tries to convert the operands to the same type before comparing them.
+
+#### Example:
+
+```javascript
+"5" == 5        // true → "5" is converted to number
+false == 0      // true → false becomes 0
+null == undefined // true → special case
+```
+
+#### Important Note:
+
+`==` can give unexpected results due to automatic coercion. It **prioritizes flexibility over strict type safety**.
+
+---
+
+### `===` (Strict Equality)
+
+* **Does not perform type coercion**.
+* Returns `true` only if the values **and** their types are exactly the same.
+
+#### Example:
+
+```javascript
+"5" === 5       // false → different types (string vs number)
+false === 0     // false → boolean vs number
+null === undefined // false → different types
+5 === 5         // true → same type and value
+```
+
+---
+
+## Summary Table
+
+| Expression                | `==` Result | `===` Result | Explanation                              |
+| ------------------------- | ----------- | ------------ | ---------------------------------------- |
+| `"5" == 5`                | `true`      | `false`      | `"5"` is coerced to number in `==`       |
+| `false == 0`              | `true`      | `false`      | `false` coerced to 0                     |
+| `null == undefined`       | `true`      | `false`      | Only equal to each other in `==`         |
+| `[] == ""`                | `true`      | `false`      | `[]` becomes `""`, then both are strings |
+| `[] == 0`                 | `true`      | `false`      | `[]` becomes `""`, then `0`              |
+| `"" == 0`                 | `true`      | `false`      | `""` becomes 0                           |
+| `true == 1`               | `true`      | `false`      | `true` becomes 1                         |
+| `null === null`           | `true`      | `true`       | Same type and value                      |
+| `undefined === undefined` | `true`      | `true`       | Same type and value                      |
+
+---
+
+## When to Use Which
+
+* Use `===` for most comparisons to avoid bugs caused by unexpected type coercion.
+* Use `==` **only when intentional coercion is desired** and you're aware of the rules.
+
+---
+
+## Best Practice
+
+> Always use `===` unless you have a specific reason to use `==`. This makes your code more predictable and less prone to hidden type conversion errors.
+
+---
 # JavaScript Conditional Statements
 
 Conditional statements in JavaScript allow you to execute different blocks of code based on specific conditions.
