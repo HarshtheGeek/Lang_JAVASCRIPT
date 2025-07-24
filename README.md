@@ -398,6 +398,8 @@ JavaScript is a **dynamically typed** and **loosely typed** language. This means
 
 * Variables can hold values of any type.
 * The language will often try to automatically convert one type to another to make an operation valid.
+* JavaScript evaluates expressions from left to right.
+* If one operand is a string and the other is a number, it may convert the number to a string (concatenation).
 
 ---
 
@@ -417,6 +419,16 @@ false + "1"    // "false1" → false becomes string "false"
 ```
 
 JavaScript decides how to coerce the values based on the **operator** and **types involved**.
+
+**Arrays convert to primitives when compared using ==**
+```js
+Copy
+Edit
+[] == 0;      // true → [] → "" → 0
+[] == "";     // true
+[1] == 1;     // true → [1] → "1" → 1
+[1,2] == "1,2"; // true
+```
 
 ---
 
